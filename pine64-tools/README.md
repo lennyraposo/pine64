@@ -1,4 +1,4 @@
-Various scripts i created while looking into Pine64 U-Boot and booting.
+Various scripts created by Pine 64 community member longsleep (https://github.com/longsleep/)
 
 ## License
 
