@@ -4,6 +4,9 @@ This scripting helps in configuring and compiling the Kernel for Pine64. To
 compile, you need a properly set up gcc-aarch64-linux-gnu toolchain. The
 recommended version to compile the Kernel is 5.3.
 
+The scripting included was created by Pine 64 community member longsleep
+with very minor changes/additions to.
+
 
 ## Compiling  Kernel 3.10.x  BSP With DRM & Mali
 
