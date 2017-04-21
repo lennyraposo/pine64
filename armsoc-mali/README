@@ -13,6 +13,7 @@ The currently supported DRM drivers are:
 - exynos
 - kirin
 - sti
+-sunxi
 
 For other drivers, you will need to implement this support yourself. A template implementation is
 provided in src/drmmode_template.
