@@ -69,3 +69,16 @@ umount /tmp/BOOT
 umount /tmp/ROOTFS
 ```
 
+
+## Create A Tarball To Install Onto Your Pine 64 (Alternative Method)
+
+This method can be used to update multiple Pine 64 boards via longsleep's
+kernel update script provided you make a few modifications to it.
+
+The below example creates the tarball into the tmp directory.
+
+
+```bash
+cd ../pine64-tools/kernel-install-tools
+./step4-kernel-modules-install.sh  /tmp ../../linux-kernel
+```
