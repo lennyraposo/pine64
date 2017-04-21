@@ -19,6 +19,7 @@ and various Pine 64 community members.
 
 ```bash
 git clone  https://github.com/lennyraposo/pine64.git pine64-build
+cd pine64-build
 cd linux-kernel
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- sun50iw1p1smp_linux_defconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- LOCALVERSION= clean
