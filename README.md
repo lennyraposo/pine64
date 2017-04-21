@@ -5,7 +5,7 @@ compile, you need a properly set up gcc-aarch64-linux-gnu toolchain. The
 recommended version to compile the Kernel is 5.3.
 
 
-## Kernel 3.10.x  BSP With DRM & Mali
+## Compiling  Kernel 3.10.x  BSP With DRM & Mali
 
 While mainlining is in the works you might want to try the Kernel which is
 released in the BSP. I have included the DRM portions from AllWinner and
@@ -26,7 +26,7 @@ LICHEE_KDIR=$(pwd)/../.. ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- LICHEE_PLAT
 ```
 
 
-### Build Busybox
+## Compiling Busybox
 
 ```bash
 cd ../../../busybox
@@ -35,7 +35,7 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j4
 ```
 
 
-## Install The New Kernel
+## Install The New Kernel To SD Card
 
 Now you can start installing your brand new kernel onto your Pine 64 SD card.
 
@@ -61,5 +61,7 @@ cd ../pine64-tools/kernel-install-tools
 ./step3-kernel-headers-install.sh  /tmp/ROOTFS ../../linux-kernel
 ./step4-kernel-modules-install.sh  /tmp/ROOTFS ../../linux-kernel
 sync
+umount /tmp/BOOT
+umount /tmp/ROOTFS
 ```
 
