@@ -9,7 +9,7 @@ if [ -z "$DEST" ]; then
 	exit 1
 fi
 
-LINUX="../linux"
+LINUX="../../linux-kernel"
 
 if [ -n "$2" ]; then
 	LINUX="$2"
@@ -29,9 +29,9 @@ cleanup() {
 }
 trap cleanup EXIT
 
-./install_kernel.sh "$TEMP/boot" "$LINUX"
-./install_kernel_modules.sh "$TEMP" "$LINUX"
-./install_kernel_headers.sh "$TEMP" "$LINUX"
+./step2-kernel-install.sh "$TEMP/boot" "$LINUX"
+./step3-kernel-headers-install.sh "$TEMP" "$LINUX"
+./step4-kernel-modules-install.sh "$TEMP" "$LINUX"
 
 # Use uEnv.txt.in so we do not overwrite customizations on next update.
 mv "$TEMP/boot/uEnv.txt" "$TEMP/boot/uEnv.txt.in"

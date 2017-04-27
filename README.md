@@ -34,7 +34,6 @@ LICHEE_KDIR=$(pwd)/../.. ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- LICHEE_PLAT
 
 ```bash
 cd ../../../busybox
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j4 oldconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j4
 ```
 
@@ -80,5 +79,5 @@ The below example creates the tarball into the tmp directory.
 
 ```bash
 cd ../pine64-tools/kernel-install-tools
-./step4-kernel-modules-install.sh  /tmp ../../linux-kernel
+./create-kernel-tarball.sh  /tmp ../../linux-kernel
 ```

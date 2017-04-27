@@ -2142,92 +2142,32 @@
 			ignore-pm-notify;
 		};
 
-		disp@01000000 {
-			compatible = "allwinner,sun50i-disp";
-			reg = <0x0 0x1000000 0x0 0x300000 0x0 0x1c0c000 0x0 0x17fc 0x0 0x1ca0000 0x0 0x10fc>;
-			interrupts = <0x0 0x56 0x104 0x0 0x57 0x104 0x0 0x59 0x104>;
-			clocks = <0x6a 0x6b 0x6c 0x6d 0x6e>;
-			status = "okay";
-			device_type = "disp";
-			disp_init_enable = <0x1>;
-			disp_mode = <0x0>;
-			screen0_output_type = <0x1>;
-			screen0_output_mode = <0x4>;
-			screen1_output_type = <0x3>;
-			screen1_output_mode = <0x5>;
-			fb0_format = <0x0>;
-			fb0_width = <0x0>;
-			fb0_height = <0x0>;
-			fb1_format = <0x0>;
-			fb1_width = <0x0>;
-			fb1_height = <0x0>;
-		};
+        disp@01000000 {
+            compatible = "allwinner,sun50i-disp";
+            reg = <0x00000000 0x01000000 0x00000000 0x00300000>,<0x00000000 0x01c0c000 0x00000000 0x000007fc>,<0x00000000 0x01c0d000 0x00000000 0x000007fc>,<0x00000000 0x01ca0000 0x00000000 0x000010fc>;
+            interrupts = <0x00000000 0x00000056 0x00000104 0x00000000 0x00000057 0x00000104 0x00000000 0x00000059 0x00000104>;
+            clocks = <0x0000006a 0x0000006b 0x0000006e 0x0000006c 0x0000006d>;
+            device_type = "disp";
+            status = "okay";
+        };
+        lcd0@01c0c000 {
+            compatible = "allwinner,sunxi-lcd0";
+            pinctrl-names = "active", "sleep";
+            device_type = "lcd0";
+            status = "okay";
+        };
+        hdmi@01ee0000 {
+            compatible = "allwinner,sunxi-hdmi";
+            reg = <0x00000000 0x01ee0000 0x00000000 0x00020000>;
+            clocks = <0x0000006f 0x00000070>;
+            device_type = "hdmi";
+            hdmi_power = "vcc-hdmi-33";
+            hdmi_hdcp_enable = <0x00000000>;
+            hdmi_cts_compatibility = <0x00000000>;
+            hdmi_hpd_mask = <0x00000100>;
+            status = "okay";
+        };
 
-		lcd0@01c0c000 {
-			compatible = "allwinner,sunxi-lcd0";
-			pinctrl-names = "active", "sleep";
-			status = "okay";
-			device_type = "lcd0";
-			lcd_used = <0x1>;
-			lcd_driver_name = "anx9804_panel";
-			lcd_model_name = <0x2>;
-			lcd_backlight = <0x32>;
-			lcd_if = <0x0>;
-			lcd_x = <0x556>;
-			lcd_y = <0x300>;
-			lcd_width = <0x100>;
-			lcd_height = <0x90>;
-			lcd_dclk_freq = <0x48>;
-			lcd_pwm_used = <0x1>;
-			lcd_pwm_ch = <0x0>;
-			lcd_pwm_freq = <0x2ee0>;
-			lcd_pwm_pol = <0x0>;
-			lcd_pwm_max_limit = <0xfa>;
-			lcd_hbp = <0x40>;
-			lcd_ht = <0x5dc>;
-			lcd_hspw = <0x36>;
-			lcd_vbp = <0x14>;
-			lcd_vt = <0x320>;
-			lcd_vspw = <0x5>;
-			lcd_lvds_if = <0x0>;
-			lcd_lvds_colordepth = <0x0>;
-			lcd_lvds_mode = <0x0>;
-			lcd_frm = <0x1>;
-			lcd_hv_clk_phase = <0x0>;
-			lcd_hv_sync_polarity = <0x0>;
-			lcd_dsi_if = <0x0>;
-			lcd_dsi_lane = <0x4>;
-			lcd_dsi_format = <0x0>;
-			lcd_dsi_te = <0x0>;
-			lcd_gamma_en = <0x0>;
-			lcd_bright_curve_en = <0x0>;
-			lcd_cmap_en = <0x0>;
-			lcd_edp_tx_rate = <0x2>;
-			lcd_edp_tx_lane = <0x2>;
-			lcd_edp_colordepth = <0x1>;
-			lcdgamma4iep = <0x16>;
-			lcd_bl_en = <0x30 0x3 0x17 0x1 0x0 0xffffffff 0x1>;
-			lcd_bl_en_power = "none";
-			lcd_power = "vcc-lvds";
-			lcd_power1 = "vcc-mipi";
-			lcd_power2 = "vcc-hsic-12";
-			lcd_gpio_0 = <0x30 0x3 0x18 0x1 0x0 0xffffffff 0x0>;
-			lcd_gpio_1 = <0x30 0x7 0x6 0x1 0x0 0xffffffff 0x1>;
-			pinctrl-0 = <0xac>;
-			lcd_pin_power = "vcc-pd";
-			pinctrl-1 = <0xad>;
-		};
-
-		hdmi@01ee0000 {
-			compatible = "allwinner,sunxi-hdmi";
-			reg = <0x0 0x1ee0000 0x0 0x20000>;
-			clocks = <0x6f 0x70>;
-			device_type = "hdmi";
-			status = "okay";
-			hdmi_power = "vcc-hdmi-33";
-			hdmi_hdcp_enable = <0x0>;
-			hdmi_cts_compatibility = <0x0>;
-		};
 
 		tr@01000000 {
 			compatible = "allwinner,sun50i-tr";
@@ -2892,6 +2832,16 @@
 			card_line = <0x8>;
 			pinctrl-0 = <0x9a>;
 			sdc_ex_dly_used = <0x2>;
+			tm4_smx_fx_0 = <0x00000000>;
+			tm4_smx_fx_1 = <0x00000000>;
+			tm4_smx_fx_2 = <0x002fffff>;
+			tm4_smx_fx_3 = <0x00000000>;
+			tm4_smx_fx_4 = <0x000dffff>;
+			tm4_smx_fx_5 = <0x00000000>;
+			tm4_smx_fx_6 = <0x0d2fffff>;
+			tm4_smx_fx_7 = <0x00000b2d>;
+			tm4_smx_fx_8 = <0x00000000>;
+			tm4_smx_fx_9 = <0x00000000>;
 		};
 
 		twi_para {
@@ -3388,17 +3338,17 @@
 	uboot {
 	};
 
-	gpu@0x01c40000 {
-		compatible = "arm,mali-400", "arm,mali-utgard";
-		reg = <0x0 0x1c40000 0x0 0x10000>;
-		interrupts = <0x0 0x61 0x4 0x0 0x62 0x4 0x0 0x63 0x4 0x0 0x64 0x4 0x0 0x66 0x4 0x0 0x67 0x4>;
-		interrupt-names = "IRQGP", "IRQGPMMU", "IRQPP0", "IRQPPMMU0", "IRQPP1", "IRQPPMMU1";
-		clocks = <0x96 0x97>;
-		device_type = "gpu_mali400_0";
-		normal_freq = <0x198>;
-		scene_ctrl_status = <0x0>;
-		temp_ctrl_status = <0x1>;
-	};
+    gpu@0x01c40000 {
+        compatible = "arm,mali-400", "arm,mali-utgard";
+        reg = <0x00000000 0x01c40000 0x00000000 0x00010000>;
+        interrupts = <0x00000000 0x00000061 0x00000004>,<0x00000000 0x00000062 0x00000004>,<0x00000000 0x00000063 0x00000004>,<0x00000000 0x00000064 0x00000004>,<0x00000000 0x00000066 0x00000004>,<0x00000000 0x00000067 0x00000004>;
+        interrupt-names = "IRQGP", "IRQGPMMU", "IRQPP0", "IRQPPMMU0", "IRQPP1", "IRQPPMMU1";
+        clocks = <0x00000096 0x00000097>;
+        device_type = "gpu_mali400_0";
+        normal_freq = <0x00000198>;
+        scene_ctrl_status = <0x00000000>;
+        temp_ctrl_status = <0x00000001>;
+    };
 
 	wlan {
 		compatible = "allwinner,sunxi-wlan";
